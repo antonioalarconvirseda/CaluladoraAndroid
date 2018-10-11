@@ -2,5 +2,10 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="botones">#8c8c8c</color>
+    <color name="botonesIz">#1be1c0</color>
+    <color name="botonesCen">#5900ff</color>
+    <color name="numeros">#ffffff</color>
+    <color name="fondo">#2844df</color>
 </resources>

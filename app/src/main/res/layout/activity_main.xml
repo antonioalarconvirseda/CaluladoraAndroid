@@ -8,48 +8,69 @@
     tools:context=".MainActivity"
     android:weightSum="1"
     android:layout_margin="10dp"
-    android:background="#FF000000">
+    android:background="@color/fondo"
+    >
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.3"
-        android:hint="0"/>
+        android:textSize="30dp"
+        android:textColor="@color/numeros"
+        android:id="@+id/contenedor"/>
 
     <TableLayout
-
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.7">
-        <TableRow >
-            <Button android:text="A/C" android:layout_marginLeft="-20dp"/>
-            <Button android:text="+/-" android:layout_marginLeft="-20dp"/>
-            <Button android:text="%" android:layout_marginLeft="-20dp"/>
-            <Button android:text="/" android:layout_marginLeft="-20dp"/>
+
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2">
+
+            <Button android:textSize="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="A/C"
+                android:id="@+id/borrar"
+                android:background="@color/botones"/>
+            <Button android:text="+/-" android:textSize="15dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/botones"/>
+            <Button android:text="%"   android:textSize="15dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/botones"/>
+
+            <Button
+                android:layout_width="98dp"
+                android:layout_height="match_parent"
+                android:background="@color/botones"
+                android:text="/"
+                android:textSize="15dp" />
         </TableRow>
-        <TableRow android:layout_marginTop="10dp">
-            <Button android:text="7"/>
-            <Button android:text="8"/>
-            <Button android:text="9"/>
-            <Button android:text="X" android:background="#D7F91D"/>
+
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2">
+            <Button android:text="7" android:id="@+id/siete" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="8" android:id="@+id/ocho" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="9" android:id="@+id/nueve" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="X" android:id="@+id/multiplicar" android:background="@color/botonesIz" android:layout_width="match_parent" android:layout_height="match_parent"/>
         </TableRow>
-        <TableRow android:layout_marginTop="10dp">
-            <Button android:text="4"/>
-            <Button android:text="5"/>
-            <Button android:text="6"/>
-            <Button android:text="-" android:background="#D7F91D" />
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2">
+            <Button android:text="4" android:id="@+id/cuatro" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="5" android:id="@+id/cinco" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="6" android:id="@+id/seis" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="-" android:id="@+id/restar" android:background="@color/botonesIz" android:layout_width="match_parent" android:layout_height="match_parent" />
         </TableRow>
-        <TableRow android:layout_marginTop="10dp">
-            <Button android:text="1"/>
-            <Button android:text="2"/>
-            <Button android:text="3"/>
-            <Button android:text="+" android:background="#D7F91D"/>
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2">
+            <Button android:text="1" android:id="@+id/uno" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="2" android:id="@+id/dos" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="3" android:id="@+id/tres" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="+" android:id="@+id/suma" android:background="@color/botonesIz" android:layout_width="match_parent" android:layout_height="match_parent"/>
         </TableRow>
-        <TableRow android:layout_marginTop="10dp">
-            <Button android:layout_span="2" android:text="0"/>
-            <Button android:text="." />
-            <Button android:text="=" android:background="#D7F91D"/>
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2">
+            <Button android:background="@color/botonesCen" android:layout_span="2" android:text="0" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="." android:id="@+id/punto" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="=" android:id="@+id/igual" android:background="@color/botonesIz" android:layout_width="match_parent" android:layout_height="match_parent"/>
 
         </TableRow>
     </TableLayout>
