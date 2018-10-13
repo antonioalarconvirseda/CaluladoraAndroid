@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,suma,restar,multiplicar,igual,borrar,punto;
+    Button cero,uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,suma,restar,multiplicar,dividir,porcentaje,negapos,igual,borrar,punto;
     EditText contenedor;
 
     double p1 = 0;
@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     double resultado = 0;
     int operador =0;
     String resulfinal = "";
+    String pasneg = "";
+    boolean comprobacion = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void instancias(){
+        cero = findViewById(R.id.cero);
        uno = findViewById(R.id.uno);
        dos = findViewById(R.id.dos);
        tres = findViewById(R.id.tres);
@@ -44,9 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        punto = findViewById(R.id.punto);
        contenedor = findViewById(R.id.contenedor);
        multiplicar = findViewById(R.id.multiplicar);
+       dividir = findViewById(R.id.divir);
+       negapos = findViewById(R.id.posnega);
+       porcentaje = findViewById(R.id.porcentaje);
     }
     public void acciones(){
         //NUMEROS
+        cero.setOnClickListener(this);
         uno.setOnClickListener(this);
         dos.setOnClickListener(this);
         tres.setOnClickListener(this);
@@ -57,7 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ocho.setOnClickListener(this);
         nueve.setOnClickListener(this);
         //OPERACIONES
+        porcentaje.setOnClickListener(this);
         multiplicar.setOnClickListener(this);
+        dividir.setOnClickListener(this);
+        negapos.setOnClickListener(this);
         punto.setOnClickListener(this);
         borrar.setOnClickListener(this);
         suma.setOnClickListener(this);
@@ -67,12 +77,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        boolean flag = false;
         int idPulsado = v.getId();
 
         switch (idPulsado){
+            case R.id.cero:
+                if (resultado > 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
+                }else if(resultado < 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
+                }
+                contenedor.append("0");
+                break;
             case R.id.uno:
                 if (resultado > 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
+                }else if(resultado < 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
                 }
@@ -82,11 +104,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (resultado > 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
+                }else if(resultado < 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
                 }
                 contenedor.append("2");
                 break;
             case R.id.tres:
                 if (resultado > 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
+                }else if(resultado < 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
                 }
@@ -96,11 +124,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (resultado > 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
+                }else if(resultado < 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
                 }
                 contenedor.append("4");
                 break;
             case R.id.cinco:
                 if (resultado > 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
+                }else if(resultado < 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
                 }
@@ -110,11 +144,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (resultado > 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
+                }else if(resultado < 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
                 }
                 contenedor.append("6");
                 break;
             case R.id.siete:
                 if (resultado > 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
+                }else if(resultado < 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
                 }
@@ -124,6 +164,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (resultado > 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
+                }else if(resultado < 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
                 }
                 contenedor.append("8");
                 break;
@@ -131,39 +174,75 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (resultado > 0.0){
                     resultado = 0.0;
                     contenedor.setText("");
+                }else if(resultado < 0.0){
+                    resultado = 0.0;
+                    contenedor.setText("");
                 }
                 contenedor.append("9");
                 break;
+            case R.id.posnega:
+                if (comprobacion == false){
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    contenedor.setText("");
+                    p1 = p1 * -1;
+                   pasneg =  Double.toString(p1);
+                    contenedor.setText(pasneg);
+                    pasneg = "";
+                }else if(comprobacion){
+                    contenedor.setText("");
+                    p2 = p2 * -1;
+                    pasneg =  Double.toString(p2);
+                    contenedor.setText(pasneg);
+                        pasneg = "";
+            }
+            break;
             case R.id.punto:
                 contenedor.append(".");
                 break;
             case R.id.suma:
+                comprobacion = true;
                     p1 = Double.parseDouble(contenedor.getText().toString());
                     contenedor.setText("");
                    operador = 1;
+
                 break;
             case R.id.restar:
+                comprobacion = true;
                 p1 = Double.parseDouble(contenedor.getText().toString());
                 contenedor.setText("");
                 operador = 2;
                 break;
             case R.id.multiplicar:
+                comprobacion = true;
                 p1 = Double.parseDouble(contenedor.getText().toString());
                 contenedor.setText("");
                 operador = 3;
+                break;
+            case R.id.divir:
+                comprobacion = true;
+                p1 = Double.parseDouble(contenedor.getText().toString());
+                contenedor.setText("");
+                operador = 4;
+                break;
+            case R.id.porcentaje:
+                comprobacion = true;
+                p1 = Double.parseDouble(contenedor.getText().toString());
+                contenedor.setText("");
+                operador = 5;
                 break;
             case R.id.igual:
 
                 p2 = Double.parseDouble(contenedor.getText().toString());
                 contenedor.setText("");
+
                 if (operador == 1){
                     resultado = p1+p2;
                     resulfinal = Double.toString(resultado);
                     contenedor.setText(resulfinal);
-
                     p1 = 0;
                     p2 = 0;
                     operador = 0;
+                    comprobacion = false;
 
                 }else if (operador == 2) {
                     resultado = p1 - p2;
@@ -172,13 +251,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     p1 = 0;
                     p2 = 0;
                     operador = 0;
-                }else if(operador == 3){
+                    comprobacion = false;
+                }else if(operador == 3) {
                     resultado = p1 * p2;
                     resulfinal = Double.toString(resultado);
                     contenedor.setText(resulfinal);
                     p1 = 0;
                     p2 = 0;
                     operador = 0;
+                    comprobacion = false;
+                } else if (operador==4) {
+                    resultado = p1 / p2;
+                    resulfinal = Double.toString(resultado);
+                    contenedor.setText(resulfinal);
+                    p1 = 0;
+                    p2 = 0;
+                    operador = 0;
+                    comprobacion = false;
+                }else if (operador == 5){
+                    resultado = p1 % p2;
+                    resulfinal = Double.toString(resultado);
+                    contenedor.setText(resulfinal);
+                    p1 = 0;
+                    p2 = 0;
+                    operador = 0;
+                    comprobacion = false;
                 }else{
                     Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_SHORT).show();
                 }
@@ -187,6 +284,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 p1 = 0;
                 p2 = 0;
                 operador = 0;
+                comprobacion = false;
                 contenedor.setText("");
                 break;
         }

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     android:weightSum="1"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:background="@color/fondo"
     >
 
@@ -34,10 +34,11 @@
                 android:text="A/C"
                 android:id="@+id/borrar"
                 android:background="@color/botones"/>
-            <Button android:text="+/-" android:textSize="15dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/botones"/>
-            <Button android:text="%"   android:textSize="15dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/botones"/>
+            <Button android:text="+/-" android:id="@+id/posnega" android:textSize="15dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/botones"/>
+            <Button android:text="%"   android:id="@+id/porcentaje" android:textSize="15dp" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/botones"/>
 
             <Button
+                android:id="@+id/divir"
                 android:layout_width="98dp"
                 android:layout_height="match_parent"
                 android:background="@color/botones"
@@ -68,7 +69,7 @@
         </TableRow>
         <TableRow android:layout_height="0dp"
             android:layout_weight="0.2">
-            <Button android:background="@color/botonesCen" android:layout_span="2" android:text="0" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:id="@+id/cero" android:background="@color/botonesCen" android:layout_span="2" android:text="0" android:layout_width="match_parent" android:layout_height="match_parent"/>
             <Button android:text="." android:id="@+id/punto" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
             <Button android:text="=" android:id="@+id/igual" android:background="@color/botonesIz" android:layout_width="match_parent" android:layout_height="match_parent"/>
 
