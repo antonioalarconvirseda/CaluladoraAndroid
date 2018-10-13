@@ -181,103 +181,154 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 contenedor.append("9");
                 break;
             case R.id.posnega:
-                if (comprobacion == false){
-                    p1 = Double.parseDouble(contenedor.getText().toString());
-                    contenedor.setText("");
-                    p1 = p1 * -1;
-                   pasneg =  Double.toString(p1);
-                    contenedor.setText(pasneg);
-                    pasneg = "";
-                }else if(comprobacion){
-                    contenedor.setText("");
-                    p2 = p2 * -1;
-                    pasneg =  Double.toString(p2);
-                    contenedor.setText(pasneg);
+
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else {
+
+                    if (comprobacion == false) {
+                        p1 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
+                        p1 = p1 * -1;
+                        pasneg = Double.toString(p1);
+                        contenedor.setText(pasneg);
                         pasneg = "";
-            }
+                    } else if (comprobacion) {
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
+                        p2 = p2 * -1;
+                        pasneg = Double.toString(p2);
+                        contenedor.setText(pasneg);
+                        pasneg = "";
+                    }
+                }
             break;
             case R.id.punto:
                 contenedor.append(".");
                 break;
+
             case R.id.suma:
-                comprobacion = true;
-                    p1 = Double.parseDouble(contenedor.getText().toString());
-                    contenedor.setText("");
+               if (contenedor.getText().toString().isEmpty()) {
+                   comprobacion = false;
+                   Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+               }else{
+                   comprobacion = true;
+                   p1 = Double.parseDouble(contenedor.getText().toString());
+                   contenedor.setText("");
                    operador = 1;
+
+               }
+
 
                 break;
             case R.id.restar:
-                comprobacion = true;
-                p1 = Double.parseDouble(contenedor.getText().toString());
-                contenedor.setText("");
-                operador = 2;
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    contenedor.setText("");
+                    operador = 2;
+
+                }
                 break;
             case R.id.multiplicar:
-                comprobacion = true;
-                p1 = Double.parseDouble(contenedor.getText().toString());
-                contenedor.setText("");
-                operador = 3;
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    contenedor.setText("");
+                    operador = 3;
+
+                }
                 break;
             case R.id.divir:
-                comprobacion = true;
-                p1 = Double.parseDouble(contenedor.getText().toString());
-                contenedor.setText("");
-                operador = 4;
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    contenedor.setText("");
+                    operador = 4;
+
+                }
                 break;
             case R.id.porcentaje:
-                comprobacion = true;
-                p1 = Double.parseDouble(contenedor.getText().toString());
-                contenedor.setText("");
-                operador = 5;
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    contenedor.setText("");
+                    operador = 5;
+
+                }
                 break;
             case R.id.igual:
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
 
-                p2 = Double.parseDouble(contenedor.getText().toString());
-                contenedor.setText("");
-
-                if (operador == 1){
-                    resultado = p1+p2;
-                    resulfinal = Double.toString(resultado);
-                    contenedor.setText(resulfinal);
-                    p1 = 0;
-                    p2 = 0;
-                    operador = 0;
-                    comprobacion = false;
-
-                }else if (operador == 2) {
-                    resultado = p1 - p2;
-                    resulfinal = Double.toString(resultado);
-                    contenedor.setText(resulfinal);
-                    p1 = 0;
-                    p2 = 0;
-                    operador = 0;
-                    comprobacion = false;
-                }else if(operador == 3) {
-                    resultado = p1 * p2;
-                    resulfinal = Double.toString(resultado);
-                    contenedor.setText(resulfinal);
-                    p1 = 0;
-                    p2 = 0;
-                    operador = 0;
-                    comprobacion = false;
-                } else if (operador==4) {
-                    resultado = p1 / p2;
-                    resulfinal = Double.toString(resultado);
-                    contenedor.setText(resulfinal);
-                    p1 = 0;
-                    p2 = 0;
-                    operador = 0;
-                    comprobacion = false;
-                }else if (operador == 5){
-                    resultado = p1 % p2;
-                    resulfinal = Double.toString(resultado);
-                    contenedor.setText(resulfinal);
-                    p1 = 0;
-                    p2 = 0;
-                    operador = 0;
-                    comprobacion = false;
                 }else{
-                    Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_SHORT).show();
+                    p2 = Double.parseDouble(contenedor.getText().toString());
+                    contenedor.setText("");
+
+                    if (operador == 1){
+                        resultado = p1+p2;
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
+                    }else if (operador == 2) {
+                        resultado = p1 - p2;
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+                    }else if(operador == 3) {
+                        resultado = p1 * p2;
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+                    } else if (operador==4) {
+                        resultado = p1 / p2;
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+                    }else if (operador == 5){
+                        resultado = p1 % p2;
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+                    }else{
+                        Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 break;
             case R.id.borrar:
