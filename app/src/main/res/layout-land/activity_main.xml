@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:weightSum="1"
+    android:layout_margin="5dp"
+    android:background="@color/fondo"
+    >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:textSize="30dp"
+        android:textColor="@color/numeros"
+        android:id="@+id/contenedor"/>
+
+    <TableLayout
+        android:stretchColumns="*"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7">
+
+        <TableRow
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:layout_width="match_parent">
+
+            <Button
+                android:id="@+id/borrar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/botones"
+                android:text="A/C"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/posnega"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/botones"
+                android:text="+/-"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/porcentaje"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/botones"
+                android:text="%"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/divir"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="/"
+                android:textSize="15dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="SEN"
+                android:textSize="15dp"
+                android:id="@+id/sen"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="X!"
+                android:textSize="15dp"
+                android:id="@+id/factorial"/>
+        </TableRow>
+
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2" android:layout_width="match_parent">
+            <Button android:text="7" android:id="@+id/siete" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="8" android:id="@+id/ocho" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="9" android:id="@+id/nueve" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="X" android:id="@+id/multiplicar" android:background="@color/cientifica" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="COS"
+                android:textSize="15dp"
+                android:id="@+id/cos"/>
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="E"
+                android:textSize="15dp"
+                android:id="@+id/e"/>
+        </TableRow>
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2" android:layout_width="match_parent">
+            <Button android:text="4" android:id="@+id/cuatro" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="5" android:id="@+id/cinco" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="6" android:id="@+id/seis" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="-" android:id="@+id/restar" android:background="@color/cientifica" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="TAN"
+                android:textSize="15dp"
+                android:id="@+id/tan"/>
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="COS"
+                android:textSize="15dp"
+                android:id="@+id/cos2"/>
+        </TableRow>
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2" android:layout_width="match_parent">
+            <Button android:text="1" android:id="@+id/uno" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="2" android:id="@+id/dos" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="3" android:id="@+id/tres" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="+" android:id="@+id/suma" android:background="@color/cientifica" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="SQR"
+                android:textSize="15dp"
+                android:id="@+id/sqr"/>
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="X2"
+                android:textSize="15dp"
+                android:id="@+id/x2"/>
+        </TableRow>
+        <TableRow android:layout_height="0dp"
+            android:layout_weight="0.2" android:layout_width="match_parent">
+            <Button android:id="@+id/cero" android:background="@color/botonesCen" android:layout_span="2" android:text="0" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <Button android:text="." android:id="@+id/punto" android:background="@color/botonesCen" android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+
+            <Button android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cientifica"
+                android:text="RAD"
+                android:id="@+id/rad"
+                android:textSize="15dp"  />
+            <Button android:text="=" android:id="@+id/igual" android:background="@color/cientifica" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_span="2"/>
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

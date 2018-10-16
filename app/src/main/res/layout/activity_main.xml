@@ -12,6 +12,7 @@
     >
 
     <EditText
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.3"
@@ -20,6 +21,7 @@
         android:id="@+id/contenedor"/>
 
     <TableLayout
+        android:stretchColumns="*"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,7 +41,7 @@
 
             <Button
                 android:id="@+id/divir"
-                android:layout_width="98dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/botones"
                 android:text="/"

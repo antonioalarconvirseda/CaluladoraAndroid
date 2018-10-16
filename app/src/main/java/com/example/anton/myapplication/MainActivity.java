@@ -1,5 +1,6 @@
 package com.example.anton.myapplication;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button cero,uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,suma,restar,multiplicar,dividir,porcentaje,negapos,igual,borrar,punto;
+    Button cero,uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,suma,restar,multiplicar,dividir,porcentaje,negapos,igual,borrar,punto,sen,factorial,cos,e,tan,raiz,elCuadrado,rad;
     EditText contenedor;
 
     double p1 = 0;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int operador =0;
     String resulfinal = "";
     String pasneg = "";
+    Double calcfactorial = 1.0;
     boolean comprobacion = false;
 
     @Override
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void instancias(){
+
         cero = findViewById(R.id.cero);
        uno = findViewById(R.id.uno);
        dos = findViewById(R.id.dos);
@@ -50,6 +53,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        dividir = findViewById(R.id.divir);
        negapos = findViewById(R.id.posnega);
        porcentaje = findViewById(R.id.porcentaje);
+       sen = findViewById(R.id.sen);
+       factorial = findViewById(R.id.factorial);
+
+
+       cos = findViewById(R.id.cos);
+       e  = findViewById(R.id.e);
+       tan = findViewById(R.id.tan);
+       raiz = findViewById(R.id.sqr);
+       elCuadrado = findViewById(R.id.x2);
+       rad = findViewById(R.id.rad);
+
+
     }
     public void acciones(){
         //NUMEROS
@@ -73,7 +88,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         suma.setOnClickListener(this);
         restar.setOnClickListener(this);
         igual.setOnClickListener(this);
+        //OPERACIONES LANDSCAPE
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            sen.setOnClickListener(this);
+            factorial.setOnClickListener(this);
 
+            cos.setOnClickListener(this);
+            e.setOnClickListener(this);
+            tan.setOnClickListener(this);
+            raiz.setOnClickListener(this);
+            elCuadrado.setOnClickListener(this);
+            rad.setOnClickListener(this);
+
+        }
     }
     @Override
     public void onClick(View v) {
@@ -206,7 +233,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             break;
             case R.id.punto:
-                contenedor.append(".");
+                if (contenedor.getText().toString().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Introduzca un operador primero", Toast.LENGTH_SHORT).show();
+                }else if(contenedor.getText().toString().contains(".")){
+                    Toast.makeText(getApplicationContext(), "Ya contiene un punto", Toast.LENGTH_SHORT).show();
+                }else{
+                    contenedor.append(".");
+                }
                 break;
 
             case R.id.suma:
@@ -216,7 +249,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                }else{
                    comprobacion = true;
+
                    p1 = Double.parseDouble(contenedor.getText().toString());
+
                    contenedor.setText("");
                    operador = 1;
 
@@ -232,6 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     comprobacion = true;
                     p1 = Double.parseDouble(contenedor.getText().toString());
+
                     contenedor.setText("");
                     operador = 2;
 
@@ -276,16 +312,93 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
                 break;
-            case R.id.igual:
+            case R.id.sen:
                 if (contenedor.getText().toString().isEmpty()) {
                     comprobacion = false;
                     Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
 
                 }else{
-                    p2 = Double.parseDouble(contenedor.getText().toString());
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    operador = 6;
+
+                }
+
+                break;
+            case R.id.factorial:
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    operador = 7;
+                    break;
+
+                }
+            case R.id.e:
+                operador = 9;
+                break;
+            case R.id.cos:
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    operador = 8;
+
+                }
+                break;
+            case R.id.tan:
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    operador = 10;
+
+                }
+                    break;
+            case R.id.sqr:
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
+                    operador = 11;
+
+                }
+                break;
+            case R.id.x2:
+                if (contenedor.getText().toString().isEmpty()) {
+                    comprobacion = false;
+                    Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    comprobacion = true;
+                    p1 = Double.parseDouble(contenedor.getText().toString());
                     contenedor.setText("");
+                    operador = 12;
+
+                }
+                break;
+            case R.id.igual:
+                if (contenedor.getText().toString().isEmpty() && operador !=9) {
+                    comprobacion = false;
+                        Toast.makeText(getApplicationContext(),"Introduzca un operador primero",Toast.LENGTH_SHORT).show();
+
+                }else{
 
                     if (operador == 1){
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
                         resultado = p1+p2;
                         resulfinal = Double.toString(resultado);
                         contenedor.setText(resulfinal);
@@ -295,6 +408,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         comprobacion = false;
 
                     }else if (operador == 2) {
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
                         resultado = p1 - p2;
                         resulfinal = Double.toString(resultado);
                         contenedor.setText(resulfinal);
@@ -302,7 +417,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         p2 = 0;
                         operador = 0;
                         comprobacion = false;
+
                     }else if(operador == 3) {
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
                         resultado = p1 * p2;
                         resulfinal = Double.toString(resultado);
                         contenedor.setText(resulfinal);
@@ -310,15 +428,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         p2 = 0;
                         operador = 0;
                         comprobacion = false;
+
                     } else if (operador==4) {
-                        resultado = p1 / p2;
-                        resulfinal = Double.toString(resultado);
-                        contenedor.setText(resulfinal);
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
+                        if (p2 == 0){
+                            Toast.makeText(getApplicationContext(),"No se puede dividir entre 0",Toast.LENGTH_SHORT).show();
+                        }else{
+                            resultado = p1 / p2;
+                            resulfinal = Double.toString(resultado);
+                            contenedor.setText(resulfinal);
+                        }
                         p1 = 0;
                         p2 = 0;
                         operador = 0;
                         comprobacion = false;
-                    }else if (operador == 5){
+
+                    }else if (operador == 5) {
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
                         resultado = p1 % p2;
                         resulfinal = Double.toString(resultado);
                         contenedor.setText(resulfinal);
@@ -326,6 +454,83 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         p2 = 0;
                         operador = 0;
                         comprobacion = false;
+
+                    }else if (operador == 6) {
+                        contenedor.setText("");
+                        resultado = Math.sin(p1);
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
+                    } else if(operador == 7){
+                        int aux = (int) p1;
+
+                        for (int i = aux; i > 0; i--) {
+                            calcfactorial = calcfactorial * i;
+                        }
+                        contenedor.setText("");
+                        resulfinal = Double.toString(calcfactorial);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        calcfactorial = 1.0;
+                        comprobacion = false;
+
+                    }else if (operador == 8) {
+                        contenedor.setText("");
+                        resultado = Math.cos(p1);
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
+                    }else if (operador == 9) {
+                        contenedor.setText("");
+                        resultado = Math.E;
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
+                    }else if (operador == 10) {
+                        contenedor.setText("");
+                        resultado = Math.tan(p1);
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
+                    }else if (operador == 11) {
+                        contenedor.setText("");
+                        resultado = Math.sqrt(p1);
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
+                    }else if (operador == 12) {
+                        p2 = Double.parseDouble(contenedor.getText().toString());
+                        contenedor.setText("");
+                        resultado = Math.pow(p1,p2);
+                        resulfinal = Double.toString(resultado);
+                        contenedor.setText(resulfinal);
+                        p1 = 0;
+                        p2 = 0;
+                        operador = 0;
+                        comprobacion = false;
+
                     }else{
                         Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_SHORT).show();
                     }
